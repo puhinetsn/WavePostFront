@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --green: #3D9833;
+    --yellow: #FFD500;
+    --dark-grey-text: #0E0C0C;
+    --light-grey-text: #C0B6B6;
+    --light-grey-bcg: #F6F6F6;
+    
+    --heading-font: "Josefin Sans", sans-serif;
+    --text-font: "Abel", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0;  }
+
+p {
+    font-family: var(--text-font);
+}
