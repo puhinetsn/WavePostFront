@@ -1,7 +1,8 @@
+
 :root {
     --green: #3D9833;
     --yellow: #FFD500;
-    --dark-grey-text: #0E0C0C;
+    --dark-grey-text: #534C4C;
     --light-grey-text: #C0B6B6;
     --light-grey-bcg: #F6F6F6;
     
@@ -15,3 +16,7 @@ body { margin: 0;  }
 p {
     font-family: var(--text-font);
 }
+
+/* .mdc-text-field--outlined .mdc-notched-outline__leading{
+    border-color: yellowgreen !important;
+} */
