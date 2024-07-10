@@ -1,1 +1,42 @@
-<p>task-login works!</p>
+<div class="homepage-logo">
+    <img src="mainLogClear.png"/>
+</div>
+<div class="login-form">
+    <h1>Log in</h1>
+                <form method="get">
+                        <div class="login-email-input">
+                            <mat-form-field class="custom-input" appearance="outline">
+                                <mat-label>Enter your email</mat-label>
+                                <input
+                                  matInput
+                                  placeholder="pat@email.com"
+                                  [formControl]="email"
+                                  (blur)="updateErrorMessage()"
+                                  required
+                                />
+                                <mat-error *ngIf="email.invalid">
+                                  {{ errorMessage() }}
+                                </mat-error>
+                              </mat-form-field>
+                        </div>
+                        
+                        <div class="login-password-input">
+                          <mat-form-field class="custom-input" appearance="outline">
+                            <mat-label>Enter your password</mat-label>
+                            <input matInput [type]="hide() ? 'password' : 'text'" />
+                            <button
+                              type="button"
+                              mat-icon-button
+                              matSuffix
+                              (click)="clickEvent($event)"
+                              [attr.aria-label]="'Hide password'"
+                              [attr.aria-pressed]="hide()">
+                              <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                          </mat-form-field>
+                        </div>
+                </form>
+                <button type="submit" mat-fab extended>
+                    Submit
+                </button>
+</div>
