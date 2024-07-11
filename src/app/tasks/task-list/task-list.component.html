@@ -1,0 +1,81 @@
+
+    <div class="side-nav-container" [class.example-is-mobile]="mobileQuery.matches">
+      <mat-toolbar class="example-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h2>Hello, Dmytro</h2>
+        <button mat-icon-button>
+            <mat-icon>logout</mat-icon>
+        </button> 
+      </mat-toolbar>
+  
+      <mat-sidenav-container class="example-sidenav-container"
+                            [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                    [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+          <mat-nav-list>
+            @for (nav of fillerNav; track nav) {
+              <a mat-list-item routerLink=".">{{nav}}</a>
+            }
+          </mat-nav-list>
+        </mat-sidenav>
+  
+        <mat-sidenav-content>
+            <div class="task-list-container">
+    <h2>New Tasks</h2>
+    <div class="department-adress">
+        <h4>Department: </h4>
+        <mat-form-field>
+            <mat-label>Department Address</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="addresses">
+                <mat-option *ngFor="let address of addresses" [value]="address.departmentAdress">
+                    {{address.departmentAdress}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="tasks">
+        <div class="task">
+           <img src="box.png">
+           <h3>Task 1</h3>
+           <button mat-fab extended>
+                Assign
+           </button>
+        </div>
+
+        <div class="task">
+            <img src="box.png">
+            <h3>Task 2</h3>
+            <button mat-fab extended>
+                 Assign
+            </button>
+         </div>
+
+         <div class="task">
+            <img src="box.png">
+            <h3>Task 3</h3>
+            <button mat-fab extended>
+                 Assign
+            </button>
+         </div>
+    </div>
+</div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </div>
+
+<!-- <div class="side-nav">
+    @if (shouldRun) {
+        <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+          <mat-toolbar class="example-toolbar">
+            <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+            <div>
+    <h2>Hello, Dmytro</h2>
+</div>
+<button mat-icon-button>
+    <mat-icon>logout</mat-icon>
+</button> -->
+
+

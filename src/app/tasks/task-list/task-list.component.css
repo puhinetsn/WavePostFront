@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+
+mat-toolbar {
+    background-color: var(--green);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1%;
+}
+
+mat-toolbar mat-icon {
+    color: var(--yellow);
+    /* font-size: 1.5em; */
+}
+
+mat-toolbar h2 {
+    color: #fff;
+    font-family: var(--heading-font);
+    margin: 0;
+    font-size: 1.5em;
+}
+
+h2 {
+    color: var(--green);
+    font-family: var(--heading-font);
+    margin-top: 5vh;
+    font-size: 2em;
+}
+
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.department-adress {
+    display: flex;
+    align-items: center;
+}
+
+.department-adress h4 {
+    color: var(--dark-grey-text);
+    font-family: var(--text-font);
+    font-weight: 900;
+    margin-right: 1vw;
+    font-size: 1.3em;
+}
+
+mat-select, mat-option {
+    font-family: var(--text-font);
+    height: 10px;
+}
+
+mat-form-field {
+    width: 40vw;
+}
+
+mat-nav-list {
+    background-color: var(--light-grey-bcg);
+    height: 100%;
+}
+
+.tasks {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    padding: 5% 0;
+}
+
+.task {
+    width: 70vw;
+    background-color: var(--light-grey-bcg);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10% 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-bottom: 10%;
+}
+
+.task img {
+    width: 60%;
+}
+
+.task button {
+    background-color: var(--green);
+    color: var(--yellow);
+    width: 60%;
+    padding: 0;
+    margin-top: 5%;
+    font-size: large;
+}
+
+
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+
+@media (min-width: 576px) {
+    .task {
+        width: 40vw;
+    }
+} 
+@media (min-width: 768px) { 
+    .task {
+        width: 35vw;
+    }
+
+    mat-toolbar h2 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 3em;
+    }
+
+    .department-adress h4 {
+        font-size: 2em;
+    }
+
+    mat-form-field {
+        width: 60vw;
+    }
+
+    mat-select, mat-option {
+        font-size: x-large;
+    }
+}
+@media (min-width: 992px) {
+    .task {
+        width: 25vw;
+        padding: 3% 0;
+    }
+
+    mat-form-field {
+        width: 40vw;
+    }
+} 
+@media (min-width: 1200px) {
+    .task {
+        width: 20vw;
+    }
+
+    mat-toolbar {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+    mat-toolbar h2 {
+        font-size: 3em;
+    }
+}
