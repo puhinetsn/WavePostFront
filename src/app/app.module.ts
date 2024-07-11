@@ -24,14 +24,18 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
-
+import { TaskAssignmentsComponent } from './tasks/task-assignments/task-assignments.component';
+import {MatTableModule} from '@angular/material/table';
+import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/task-personal-schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
     TaskLoginComponent,
     TaskMainComponent,
     TaskListComponent,
-    TaskDetailsComponent
+    TaskDetailsComponent,
+    TaskAssignmentsComponent,
+    TaskPersonalScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +56,8 @@ import { MatCardModule } from '@angular/material/card';
     MatPaginatorModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatCardModule
+    MatCardModule,
+    MatTableModule
   ],
   providers: [
     provideClientHydration(),
