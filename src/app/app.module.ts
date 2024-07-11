@@ -17,17 +17,21 @@ import { TaskListComponent } from './tasks/task-list/task-list.component';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
-
 import { MatListModule } from '@angular/material/list';
+import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskLoginComponent,
     TaskMainComponent,
-    TaskListComponent
+    TaskListComponent,
+    TaskDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,11 @@ import { MatListModule } from '@angular/material/list';
     FormsModule,
     MatSidenavModule,
     MatToolbarModule,
-    MatListModule
+    MatListModule,
+    MatPaginatorModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCardModule
   ],
   providers: [
     provideClientHydration(),

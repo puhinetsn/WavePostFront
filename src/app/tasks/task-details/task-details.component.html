@@ -1,0 +1,81 @@
+
+
+<div class="main-info-container">
+    <div class="header">
+        <img src="smallMainLogo.jfif"/>
+        <h2>Task Assignment</h2>
+    </div>
+    
+    <div class='main-assignment-info'>
+        <h1>Task Info</h1>
+        <div class="main-assignment-info-desc">
+            <p>
+                <span class="info-name" id="name">Name:</span>
+                <span class="info-desc">cash desk</span>
+            </p>
+            <p>
+                <span class="info-name" id="desc">Description:</span>
+                <span class="info-desc">Lorem Ipsum is simply dummy text of the printing and 
+                typesetting industry. Lorem Ipsum has been the industry's standard dummy text 
+                ever since the 1500s.</span>
+            </p>
+            <p>
+                <span class="info-name" id="payperday">Per day payment:</span>
+                <span class="info-desc">1300UAH</span>
+            </p>
+            <p>
+                <span class="info-name" id="name">Department:</span>
+                <span class="info-desc">2</span>
+            </p>
+        </div>
+        <div class="performers">
+            <h5>Number of performers: </h5>
+            <mat-form-field>
+                <mat-label>Number</mat-label>
+                <input matInput placeholder="Number" type="number" [(ngModel)]="number">
+            </mat-form-field>
+        </div>
+    
+        <div class="list-of-performers">
+            <div class="performer">
+                <p>Lesnoi Dmytro Serhiyovych</p>
+                <button mat-fab extended>
+                    ADD
+                </button>
+            </div>
+            <div class="performer">
+                <p>Lesnoi Dmytro Serhiyovych</p>
+                <button mat-fab extended>
+                    ADD
+                </button>
+            </div>
+            <div class="performer">
+                <p>Lesnoi Dmytro Serhiyovych</p>
+                <button mat-fab extended>
+                    ADD
+                </button>
+            </div>
+        </div>
+    
+        <div class="date-range">
+            <mat-form-field>
+                <mat-label>Enter a date range</mat-label>
+                <mat-date-range-input [rangePicker]="picker">
+                  <input matStartDate placeholder="Start date">
+                  <input matEndDate placeholder="End date">
+                </mat-date-range-input>
+                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-date-range-picker #picker></mat-date-range-picker>
+              </mat-form-field>
+        </div>
+    
+        <div class="assign-button">
+            <button mat-fab extended>
+                Assign
+            </button>
+        </div>
+    </div>
+</div>
+
+
