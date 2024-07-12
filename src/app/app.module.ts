@@ -27,6 +27,10 @@ import { MatCardModule } from '@angular/material/card';
 import { TaskAssignmentsComponent } from './tasks/task-assignments/task-assignments.component';
 import {MatTableModule} from '@angular/material/table';
 import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/task-personal-schedule.component';
+import { TaskSignupComponent } from './tasks/task-signup/task-signup.component';
+import {MatRadioModule} from '@angular/material/radio';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,6 +40,7 @@ import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/ta
     TaskDetailsComponent,
     TaskAssignmentsComponent,
     TaskPersonalScheduleComponent,
+    TaskSignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/ta
     MatDatepickerModule,
     MatNativeDateModule,
     MatCardModule,
+    MatRadioModule,
     MatTableModule
   ],
   providers: [
