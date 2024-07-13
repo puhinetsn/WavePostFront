@@ -3,25 +3,25 @@ export interface IAddress {
     departmentAdress: string;
 }
   
-// export interface IAssignmentsInfo {
-//     id: number;
-//     taskName: string;
-//     workers: IWorker[]; 
-//     duration: number;
-//     payment: number;
-//     startDate: Date;
-//     executorsQty: number;
-
-//     getEndDate(): Date; 
-// }
-
 export interface IAssignmentsInfo {
-        id: number;
-        taskName: string;
-        worker: string;
-        duration: number;
-        payment: number; 
+    id: number;
+    taskName: string;
+    workers: IWorker[]; 
+    duration: number;
+    payment: number;
+    startDate: Date;
+    executorsQty: number;
+
+    getEndDate(): Date; 
 }
+
+// export interface IAssignmentsInfo {
+//         id: number;
+//         taskName: string;
+//         worker: string;
+//         duration: number;
+//         payment: number; 
+// }
 
 export interface IAssignment {
     name: string;
@@ -62,6 +62,40 @@ export class Assignment implements IAssignment {
         this.description = description;
         this.duration = duration;
         this.payment = payment;
+    }
+}
+
+export class AssignmentsInfo implements IAssignmentsInfo {
+    id: number;
+    taskName: string;
+    workers: IWorker[];
+    duration: number;
+    payment: number;
+    startDate: Date;
+    executorsQty: number;
+
+    constructor(
+        id: number,
+        taskName: string,
+        workers: IWorker[],
+        duration: number,
+        payment: number,
+        startDate: Date,
+        executorsQty: number
+    ) {
+        this.id = id;
+        this.taskName = taskName;
+        this.workers = workers;
+        this.duration = duration;
+        this.payment = payment;
+        this.startDate = startDate;
+        this.executorsQty = executorsQty;
+    }
+
+    getEndDate(): Date {
+        const endDate = new Date(this.startDate);
+        endDate.setDate(endDate.getDate() + this.duration);
+        return endDate;
     }
 }
 
