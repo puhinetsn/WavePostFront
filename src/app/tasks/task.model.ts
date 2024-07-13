@@ -11,6 +11,7 @@ export interface IAssignmentsInfo {
     payment: number;
     startDate: Date;
     executorsQty: number;
+    departmentId: number;
 
     getEndDate(): Date; 
 }
@@ -73,6 +74,7 @@ export class AssignmentsInfo implements IAssignmentsInfo {
     payment: number;
     startDate: Date;
     executorsQty: number;
+    departmentId: number;
 
     constructor(
         id: number,
@@ -81,7 +83,8 @@ export class AssignmentsInfo implements IAssignmentsInfo {
         duration: number,
         payment: number,
         startDate: Date,
-        executorsQty: number
+        executorsQty: number,
+        departmentId: number
     ) {
         this.id = id;
         this.taskName = taskName;
@@ -90,12 +93,35 @@ export class AssignmentsInfo implements IAssignmentsInfo {
         this.payment = payment;
         this.startDate = startDate;
         this.executorsQty = executorsQty;
+        this.departmentId = departmentId
     }
 
     getEndDate(): Date {
         const endDate = new Date(this.startDate);
         endDate.setDate(endDate.getDate() + this.duration);
         return endDate;
+    }
+}
+
+export class Worker implements IWorker{
+    firstName: string;
+    lastName: string;
+    middleName: string;
+    position: string;
+    rate: number;
+
+    constructor(
+        firstName: string,
+        lastName: string,
+        middleName: string,
+        position: string,
+        rate: number
+    ){
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.middleName = middleName;
+        this.position = position;
+        this.rate = rate;
     }
 }
 

@@ -1,0 +1,28 @@
+.worker-info {
+    padding: 5% 3%;
+}
+
+.worker-info span {
+    font-size: 1.5em;
+    color:var(--dark-grey-text);
+}
+
+p span:first-child {
+    font-weight: 700;
+  }
+
+@media (min-width: 768px) {
+    .worker-info{
+        display: flex;
+        width: 80%;
+        margin: 0 auto;
+        justify-content: space-around;
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    .worker-info{
+        font-size: 1.5em;
+    }
+}

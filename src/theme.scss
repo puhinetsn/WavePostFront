@@ -1,0 +1,21 @@
+@use '@angular/material' as mat;
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+@include mat.core();
+
+$theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$green-palette,
+    tertiary: mat.$yellow-palette
+  ),
+  typography: (
+    plain-family: 'Abel, sans-serif',
+    brand-family: 'Josefin Sans, sans-serif',
+    bold-weight: 900
+  )
+));
+
+html {
+  @include mat.all-component-themes($theme);
+}

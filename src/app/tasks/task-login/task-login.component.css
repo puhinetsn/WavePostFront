@@ -47,21 +47,6 @@ mat-label, mat-form-field {
     font-size: larger;
 }
 
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__leading{
-    border:none !important;
-    border-bottom: 1px solid var(--dark-grey-text) !important;
-}
-
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__notch{
-    border:none !important;
-    border-bottom: 1px solid var(--dark-grey-text) !important;
-    color:black !important;
-}
-
-:host ::ng-deep .mdc-text-field--outlined .mdc-notched-outline__trailing{
-    border:none !important;
-    border-bottom:  1px solid var(--dark-grey-text) !important;
-}
 
 button[type="submit"] {
     background-color:var(--green);
