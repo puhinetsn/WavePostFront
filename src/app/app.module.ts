@@ -29,7 +29,7 @@ import {MatTableModule} from '@angular/material/table';
 import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/task-personal-schedule.component';
 import { TaskSignupComponent } from './tasks/task-signup/task-signup.component';
 import {MatRadioModule} from '@angular/material/radio';
-
+import { TaskComponent } from './tasks/task/task.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,7 @@ import {MatRadioModule} from '@angular/material/radio';
     TaskAssignmentsComponent,
     TaskPersonalScheduleComponent,
     TaskSignupComponent,
+    TaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,8 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
+import { Component, signal} from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import {FormControl, Validators} from '@angular/forms';
 import {merge} from 'rxjs';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+
 @Component({
   selector: 'app-task-login',
   templateUrl: './task-login.component.html',

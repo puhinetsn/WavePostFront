@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Observable, map, startWith } from 'rxjs';
-import { AssignmentsInfo } from '../task.model';
+import { IAssignmentsInfo } from '../task.model';
 import { MatTableDataSource } from '@angular/material/table';
 
-const ELEMENT_DATA: AssignmentsInfo[] = [
+const ELEMENT_DATA: IAssignmentsInfo[] = [
   { id: 1, taskName: 'Task 1', worker: 'Alice', duration: 1, payment: 100 },
   { id: 2, taskName: 'Task 2', worker: 'Bob', duration: 2, payment: 200 },
   { id: 3, taskName: 'Task 3', worker: 'Charlie', duration: 3, payment: 300 },

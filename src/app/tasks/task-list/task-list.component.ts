@@ -1,5 +1,5 @@
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
-import { Address } from '../task.model';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { IAddress, Address, Assignment, IAssignment } from '../task.model';
 import { MediaMatcher } from '@angular/cdk/layout';
 
 @Component({
@@ -7,18 +7,32 @@ import { MediaMatcher } from '@angular/cdk/layout';
   templateUrl: './task-list.component.html',
   styleUrls: ['./task-list.component.css']
 })
-export class TaskListComponent implements OnDestroy {
+export class TaskListComponent implements OnInit, OnDestroy {
   selectedValue: string | undefined; 
 
-  addresses: Address[] = [
-    {departmentId: '1', departmentAdress: 'Address 1'},
-    {departmentId: '2', departmentAdress: 'Address 2'},
-    {departmentId: '3', departmentAdress: 'Address 3'},
-  ];
+  public addresses: IAddress[] = [];
+  public tasks: IAssignment[] = [];
+
+  public ngOnInit(): void {
+    this.addresses.push(
+      new Address(1, 'Address 1'),
+      new Address(2, 'Address 2'),
+      new Address(3, 'Address 3')
+    )
+
+    this.tasks.push(
+      new Assignment(1, 'Mail Reception and Processing', 'Receive, sort, and distribute incoming mail to the department.', 1, 100),
+      new Assignment(2, 'Parcel Dispatch', 'Handle parcel shipments, including filling out necessary documents and weighing items.', 2, 150),
+      new Assignment(3, 'Customer Consultation', 'Inform customers about services, rates, delivery times, and shipping methods.', 1, 80),
+      new Assignment(4, 'Mail Management', 'Keep track of shipments, monitor their status, and resolve delivery issues.', 3, 120),
+      new Assignment(5, 'Financial Transactions', 'Process financial transactions related to the sale of stamps, service tickets, and other payments.', 1, 90)
+    );    
+
+  }
 
   mobileQuery: MediaQueryList;
 
-  fillerNav: string[] = ['Create new task', 'View schedule info', 'Add new account', 'Log Out'];
+  fillerNav: string[] = ['View schedule info', 'Add new account', 'Log Out'];
 
 
   private _mobileQueryListener: () => void;
@@ -29,10 +43,8 @@ export class TaskListComponent implements OnDestroy {
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
 
-    // Перевірка наявності window перед його використанням
     this.shouldRun = true;
 
-    // Додати консольний лог для діагностики
     if (typeof window !== 'undefined') {
       console.log('Window location host:', window.location.host);
       console.log('shouldRun:', this.shouldRun);

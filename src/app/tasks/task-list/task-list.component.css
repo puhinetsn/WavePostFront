@@ -41,7 +41,7 @@ h2 {
     align-items: center;
 }
 
-.department-adress h4 {
+.department-address h4 {
     color: var(--dark-grey-text);
     font-family: var(--text-font);
     font-weight: 900;
@@ -68,32 +68,7 @@ mat-nav-list {
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    padding: 5% 0;
-}
-
-.task {
-    width: 70vw;
-    background-color: var(--light-grey-bcg);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10% 0;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-bottom: 10%;
-}
-
-.task img {
-    width: 60%;
-}
-
-.task button {
-    background-color: var(--green);
-    color: var(--yellow);
-    width: 60%;
-    padding: 0;
-    margin-top: 5%;
-    font-size: large;
+    padding: 5% 10% 5%;
 }
 
 
@@ -108,16 +83,7 @@ mat-nav-list {
     padding: 20px;
   }
 
-
-@media (min-width: 576px) {
-    .task {
-        width: 40vw;
-    }
-} 
 @media (min-width: 768px) { 
-    .task {
-        width: 35vw;
-    }
 
     mat-toolbar h2 {
         font-size: 2em;
@@ -140,19 +106,13 @@ mat-nav-list {
     }
 }
 @media (min-width: 992px) {
-    .task {
-        width: 25vw;
-        padding: 3% 0;
-    }
 
     mat-form-field {
         width: 40vw;
     }
 } 
 @media (min-width: 1200px) {
-    .task {
-        width: 20vw;
-    }
+   
 
     mat-toolbar {
         padding-top: 3%;
