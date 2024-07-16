@@ -13,7 +13,7 @@
 html, body { height: 100%; }
 body { margin: 0;  }
 
-p {
+p, th, td {
     font-family: var(--text-font);
 }
 

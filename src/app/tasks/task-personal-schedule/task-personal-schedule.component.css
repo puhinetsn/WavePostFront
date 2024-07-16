@@ -26,9 +26,7 @@ mat-icon {
     font-size: 2em;
 }
 
-.worker-info {
-    padding: 5% 3%;
-}
+
 
 .worker-info span {
     font-size: 1.5em;
@@ -37,10 +35,7 @@ mat-icon {
 
 .info-table {
     width: 90%;
-    display: flex;
     align-self:center;
-    padding-bottom: 5%;
-    border-radius: 15px;
 }
 
 @media (min-width: 576px){
@@ -88,4 +83,3 @@ mat-icon {
         font-size: 1.5em;
     }
 }
-
