@@ -4,39 +4,57 @@
   </div>
   <div class="signup-form">
     <h1>Sign up</h1>
-    <form method="get">
+    <form [formGroup]='form' (submit)='submit()'>
       <mat-form-field class="example-form-field">
         <mat-label>First Name</mat-label>
-        <input matInput type="text" [(ngModel)]="firstName" name="firstName">
-        <button *ngIf="firstName" matSuffix mat-icon-button aria-label="Clear" (click)="firstName=''">
+        <input matInput type="text" formControlName="firstName">
+        <button *ngIf="form.get('firstName')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="form.get('firstName')?.setValue('')">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
       
       <mat-form-field class="example-form-field">
         <mat-label>Last Name</mat-label>
-        <input matInput type="text" [(ngModel)]="lastName" name="lastName">
-        <button *ngIf="lastName" matSuffix mat-icon-button aria-label="Clear" (click)="lastName=''">
+        <input matInput type="text" formControlName="lastName">
+        <button *ngIf="form.get('lastName')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="form.get('lastName')?.setValue('')">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
       
       <mat-form-field class="example-form-field">
         <mat-label>Middle Name</mat-label>
-        <input matInput type="text" [(ngModel)]="middleName" name="middleName">
-        <button *ngIf="middleName" matSuffix mat-icon-button aria-label="Clear" (click)="middleName=''">
+        <input matInput type="text" formControlName="middleName">
+        <button *ngIf="form.get('middleName')?.value" matSuffix mat-icon-button aria-label="Clear" (click)="form.get('middleName')?.setValue('')">
           <mat-icon>close</mat-icon>
         </button>
       </mat-form-field>
   
-      <mat-radio-group aria-label="Select an option">
-        <mat-radio-button value="1">Worker</mat-radio-button>
-        <mat-radio-button value="2">Administrator</mat-radio-button>
+      <mat-radio-group aria-label="Select an option" formControlName="position">
+        <mat-radio-button value="Worker">Worker</mat-radio-button>
+        <mat-radio-button value="Admin">Administrator</mat-radio-button>
       </mat-radio-group>
+
+      <mat-form-field class="custom-input">
+        <mat-label>Salary rate</mat-label>
+        <input matInput type="number" class="example-right-align" placeholder="0" formControlName="rate" />
+        <span matTextPrefix>$&nbsp;</span>
+        <span matTextSuffix>.00</span>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlName="email" placeholder="namesurname@wavepost.com"/>
+        <mat-error *ngIf="form.get('email')?.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="form.get('email')?.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
+      </mat-form-field>
       
       <mat-form-field class="custom-input">
         <mat-label>Enter password</mat-label>
-        <input matInput [type]="hide() ? 'password' : 'text'" />
+        <input matInput [type]="hide() ? 'password' : 'text'" formControlName="password"/>
         <button
           type="button"
           mat-icon-button
@@ -48,25 +66,10 @@
         </button>
       </mat-form-field>
       
-      <mat-form-field class="custom-input">
-        <mat-label>Repeat password</mat-label>
-        <input matInput [type]="hide() ? 'password' : 'text'" />
-        <button
-          type="button"
-          mat-icon-button
-          matSuffix
-          (click)="clickEvent($event)"
-          [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide()">
-          <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-      </mat-form-field>
+      <button type="submit" mat-fab extended>
+        Submit
+      </button>
+      
     </form>
-    
-    <button type="submit" mat-fab extended>
-      Submit
-    </button>
   </div>
-  
 </div>
-

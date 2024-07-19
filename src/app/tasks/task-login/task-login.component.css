@@ -109,6 +109,7 @@ button[type="submit"] {
 
     .login-form {
         width: 50vw;
+        margin-top: 3%;
     }
 
     mat-form-field,  button[type="submit"]{

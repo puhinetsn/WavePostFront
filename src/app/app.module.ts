@@ -32,6 +32,8 @@ import { TaskComponent } from './tasks/task/task.component';
 import { WorkerDataComponent } from './tasks/worker-data/worker-data.component';
 import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/task-personal-schedule.component';
 import { TaskTableAssignmentsComponent } from './tasks/task-table-assignments/task-table-assignments.component';
+import { TaskHeaderComponent } from './tasks/task-header/task-header.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { TaskTableAssignmentsComponent } from './tasks/task-table-assignments/ta
     WorkerDataComponent,
     TaskPersonalScheduleComponent,
     TaskTableAssignmentsComponent,
+    TaskHeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { TaskTableAssignmentsComponent } from './tasks/task-table-assignments/ta
     MatNativeDateModule,
     MatCardModule,
     MatRadioModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),

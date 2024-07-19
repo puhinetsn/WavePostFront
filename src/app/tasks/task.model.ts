@@ -16,13 +16,7 @@ export interface IAssignmentsInfo {
     getEndDate(): Date; 
 }
 
-// export interface IAssignmentsInfo {
-//         id: number;
-//         taskName: string;
-//         worker: string;
-//         duration: number;
-//         payment: number; 
-// }
+
 
 export interface IAssignment {
     name: string;

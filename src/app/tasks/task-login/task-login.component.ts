@@ -1,7 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, signal} from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {FormControl, Validators} from '@angular/forms';
-import {merge} from 'rxjs';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {merge, switchMap} from 'rxjs';
 
 @Component({
   selector: 'app-task-login',
@@ -10,10 +11,14 @@ import {merge} from 'rxjs';
 })
 export class TaskLoginComponent {
   readonly email = new FormControl('', [Validators.required, Validators.email]);
+  form!: FormGroup;
 
   errorMessage = signal('');
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
@@ -30,9 +35,25 @@ export class TaskLoginComponent {
   }
 
   hide = signal(true);
+
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
+  }
+
+  ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      email: '',
+      password: ''
+    })
+  }
+
+  submit(): void{
+    console.log(this.form.getRawValue());
+    this.http.post('http://localhost:3000/api/auth/login', this.form.getRawValue(), 
+    {withCredentials: true}).subscribe(res => {
+        console.log(res);
+      })
   }
 }
 

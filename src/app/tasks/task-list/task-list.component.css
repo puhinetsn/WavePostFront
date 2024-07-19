@@ -36,7 +36,7 @@ h2 {
     align-items: center;
 }
 
-.department-adress {
+.department-address {
     display: flex;
     align-items: center;
 }
@@ -70,7 +70,6 @@ mat-nav-list {
     width: 100%;
     padding: 5% 10% 5%;
 }
-
 
   .example-sidenav-content {
     display: flex;

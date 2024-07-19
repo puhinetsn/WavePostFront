@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
-import { IAddress, Address, Assignment, IAssignment } from '../task.model';
 import { MediaMatcher } from '@angular/cdk/layout';
-
+import { TasksApiService } from '../../services/tasks-api.service';
+import { IAddress, Address, Assignment, IAssignment } from '../task.model';
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
@@ -12,6 +12,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   public addresses: IAddress[] = [];
   public tasks: IAssignment[] = [];
+  tasksApiService: any;
 
   public ngOnInit(): void {
     this.addresses.push(
@@ -26,7 +27,12 @@ export class TaskListComponent implements OnInit, OnDestroy {
       new Assignment(3, 'Customer Consultation', 'Inform customers about services, rates, delivery times, and shipping methods.', 1, 80),
       new Assignment(4, 'Mail Management', 'Keep track of shipments, monitor their status, and resolve delivery issues.', 3, 120),
       new Assignment(5, 'Financial Transactions', 'Process financial transactions related to the sale of stamps, service tickets, and other payments.', 1, 90)
-    );    
+    );  
+    
+    
+    this.crud.getAllTasks().subscribe((tasks: any) => {
+      console.log(tasks);
+    });
 
   }
 
@@ -38,7 +44,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   private _mobileQueryListener: () => void;
   shouldRun: boolean;
 
-  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, private crud: TasksApiService) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
@@ -56,4 +62,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
+ 
+
 }

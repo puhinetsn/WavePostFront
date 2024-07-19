@@ -1,18 +1,22 @@
-.homepage-bcg{
-    background-image:linear-gradient(to left, rgb(255, 255, 255,0), rgb(255, 255, 255, 1)),
-    url('/loginbcg.jpeg');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.homepage-bcg {
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1)), url('/loginbcg.jpeg');
     width: 100%;
     height: 100%;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.homepage-logo {
-    background-color: var(--green);
-    padding: 3% 5%;
-}
-
-.homepage-logo img {
+.home-logo img {
     width: 35%;
+    margin-left: 5%;
 }
 
 .homepage-nav {
@@ -28,8 +32,9 @@
     height: 60%;
     width: 55%;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     font-size: 1.5em;
+    margin-bottom: 5%;
 }
 
 button {
@@ -39,16 +44,16 @@ button {
     font-size: 1.5em;
 }
 
-
 @media (min-width: 576px) {
-    .homepage-logo {
+    .home-logo {
         padding: 3% 4%;
     }
 
-    .homepage-logo img {
+    .home-logo img {
         width: 25%;
     }
-} 
+}
+
 @media (min-width: 768px) {
     .homepage-info {
         width: 90%;
@@ -62,27 +67,27 @@ button {
         padding: 3%;
     }
 }
+
 @media (min-width: 992px) {
-    .homepage-bcg{
-        background-image:linear-gradient(to left, rgb(255, 255, 255,1), rgb(255, 255, 255, 0)),
-        url('/loginbcg.jpeg');
+    .homepage-bcg {
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0)), url('/loginbcg.jpeg');
     }
-    
-    .homepage-logo{
+
+    .home-logo {
         padding: 2% 3%;
     }
 
-    .homepage-logo img {
+    .home-logo img {
         width: 15%;
     }
 
     .homepage-nav {
-        align-items: end;
+        align-items: flex-end;
         justify-content: flex-end;
-        padding: 0% 5%;
+        padding: 0 5%;
     }
 
-     .homepage-info {
+    .homepage-info {
         width: 70%;
         height: 90%;
         font-size: 1.8em;
@@ -100,14 +105,14 @@ button {
         width: 40%;
         padding: 0;
     }
-
 }
+
 @media (min-width: 1200px) {
-    .homepage-logo{
+    .home-logo {
         padding: 1% 3%;
     }
 
-    .homepage-logo img{
+    .home-logo img {
         width: 10%;
     }
 
@@ -115,6 +120,4 @@ button {
         width: 40%;
         line-height: 1.5;
     }
-
-    
 }
