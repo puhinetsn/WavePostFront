@@ -1,6 +1,8 @@
+
+
 export interface IAddress {
     departmentId: number; 
-    departmentAdress: string;
+    departmentAddress: string;
 }
   
 export interface IAssignmentsInfo {
@@ -21,26 +23,26 @@ export interface IAssignmentsInfo {
 export interface IAssignment {
     name: string;
     description: string;
-    duration: number;
-    payment: number;
 }
 
 export interface IWorker {
-    firstName: string;
-    lastName: string;
-    middleName: string;
-    position: string;
-    rate: number;
+      firstName: string;
+      lastName: string;
+      middleName: string;
+      position: string;
+      rate: number;
+      email: string;
+      bonus: number;
 }
 
 export class Address implements IAddress {
     departmentId: number;
-    departmentAdress: string;
 
     constructor(departmentId: number, departmentAdress: string){
         this.departmentId = departmentId;
-        this.departmentAdress = departmentAdress;
+        this.departmentAddress = departmentAdress;
     }
+    departmentAddress: string;
 
 }
 
@@ -103,19 +105,25 @@ export class Worker implements IWorker{
     middleName: string;
     position: string;
     rate: number;
+    email: string;
+    bonus: number;
 
     constructor(
         firstName: string,
         lastName: string,
         middleName: string,
         position: string,
-        rate: number
+        rate: number,
+        email: string,
+        bonus: number
     ){
         this.firstName = firstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.position = position;
         this.rate = rate;
+        this.email = email;
+        this.bonus = bonus;
     }
 }
 
