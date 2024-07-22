@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AssignmentsInfo, IAssignmentsInfo } from '../task.model';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-task-table-assignments',
   templateUrl: './task-table-assignments.component.html',
-  styleUrl: './task-table-assignments.component.css'
+  styleUrls: ['./task-table-assignments.component.css']
 })
-export class TaskTableAssignmentsComponent {
+export class TaskTableAssignmentsComponent implements OnInit {
   public assignments: IAssignmentsInfo[] = [];
   displayedColumns: string[] = ['taskName', 'workers', 'payment', 'startDate', 'endDate'];
   dataSource = new MatTableDataSource<IAssignmentsInfo>(this.assignments);
@@ -20,7 +20,7 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Alice', middleName: 'B.', lastName: 'Smith', position: 'Mail Clerk', rate: 20,
-         
+            email: 'alice.smith@mail.com', bonus: 100
           }
         ],
         2,
@@ -35,11 +35,11 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Bob', middleName: 'C.', lastName: 'Brown', position: 'Package Handler', rate: 25,
-           
+            email: 'bob.brown@mail.com', bonus: 150
           },
           {
             firstName: 'Alice', middleName: 'B.', lastName: 'Smith', position: 'Package Handler', rate: 25,
-            
+            email: 'alice.smith@mail.com', bonus: 120
           }
         ],
         3,
@@ -54,7 +54,7 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Charlie', middleName: 'E.', lastName: 'Davis', position: 'Customer Service Rep', rate: 18,
-           
+            email: 'charlie.davis@mail.com', bonus: 80
           }
         ],
         1,
@@ -69,15 +69,15 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'David', middleName: 'F.', lastName: 'Evans', position: 'Mail Manager', rate: 30,
-           
+            email: 'david.evans@mail.com', bonus: 200
           },
           {
             firstName: 'Eve', middleName: 'G.', lastName: 'Green', position: 'Mail Manager', rate: 30,
-           
+            email: 'eve.green@mail.com', bonus: 190
           },
           {
             firstName: 'Frank', middleName: 'H.', lastName: 'Harris', position: 'Mail Manager', rate: 30,
-          
+            email: 'frank.harris@mail.com', bonus: 180
           }
         ],
         4,
@@ -92,7 +92,7 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Grace', middleName: 'I.', lastName: 'Johnson', position: 'Finance Clerk', rate: 28,
-           
+            email: 'grace.johnson@mail.com', bonus: 120
           }
         ],
         2,
@@ -107,11 +107,11 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Hank', middleName: 'J.', lastName: 'Lewis', position: 'Mail Sorter', rate: 19,
-            
+            email: 'hank.lewis@mail.com', bonus: 90
           },
           {
             firstName: 'Ivy', middleName: 'K.', lastName: 'Martinez', position: 'Mail Sorter', rate: 19,
-            
+            email: 'ivy.martinez@mail.com', bonus: 85
           }
         ],
         2,
@@ -126,15 +126,15 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Jack', middleName: 'L.', lastName: 'Nelson', position: 'Customer Service Rep', rate: 21,
-            
+            email: 'jack.nelson@mail.com', bonus: 110
           },
           {
             firstName: 'Kelly', middleName: 'M.', lastName: 'Owen', position: 'Customer Service Rep', rate: 21,
-            
+            email: 'kelly.owen@mail.com', bonus: 105
           },
           {
             firstName: 'Leo', middleName: 'N.', lastName: 'Perry', position: 'Customer Service Rep', rate: 21,
-            
+            email: 'leo.perry@mail.com', bonus: 100
           }
         ],
         3,
@@ -149,7 +149,7 @@ export class TaskTableAssignmentsComponent {
         [
           {
             firstName: 'Mia', middleName: 'O.', lastName: 'Quinn', position: 'Mail Carrier', rate: 23,
-           
+            email: 'mia.quinn@mail.com', bonus: 130
           }
         ],
         4,
@@ -161,5 +161,4 @@ export class TaskTableAssignmentsComponent {
     );
     this.dataSource.data = this.assignments;
   }
-
 }

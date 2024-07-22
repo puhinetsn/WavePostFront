@@ -10,6 +10,6 @@ export class WorkerDataComponent implements OnInit {
   @Input() worker!: IWorker;
 
   ngOnInit(): void {
-    this.worker = new Worker('Donald', 'Trump', 'D.', 'worker', 12000);
+    this.worker = new Worker('Donald', 'Trump', 'D.', 'worker', 12000, 'post', 200);
   }
 }

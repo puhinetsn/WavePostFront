@@ -3,6 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit, signal } from '@angular/cor
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
+import { TasksApiService } from '../../services/tasks-api.service';
 
 @Component({
   selector: 'app-task-signup',
@@ -10,21 +11,25 @@ import { merge } from 'rxjs';
   styleUrls: ['./task-signup.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TaskSignupComponent implements OnInit{
+export class TaskSignupComponent implements OnInit {
 
   form!: FormGroup;
 
   readonly email = new FormControl('', [Validators.required, Validators.email]);
-
   errorMessage = signal('');
+  hide = signal(true);
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) {
+  constructor(
+    private formBuilder: FormBuilder,
+    private http: HttpClient,
+    private tasksApiService: TasksApiService 
+  ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
       .subscribe(() => this.updateErrorMessage());
   }
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.form = this.formBuilder.group({
       firstName: '',
       lastName: '',
@@ -32,7 +37,7 @@ export class TaskSignupComponent implements OnInit{
       email: this.email,
       position: '',
       rate: 0,
-      password: '',
+      password: ''
     });
   }
 
@@ -46,7 +51,6 @@ export class TaskSignupComponent implements OnInit{
     }
   }
 
-  hide = signal(true);
   clickEvent(event: MouseEvent) {
     this.hide.set(!this.hide());
     event.stopPropagation();
@@ -54,9 +58,8 @@ export class TaskSignupComponent implements OnInit{
 
   submit(): void {
     console.log(this.form.getRawValue());
-    this.http.post('http://localhost:3000/api/auth/register', this.form.getRawValue())
-      .subscribe(res => {
-        console.log(res);
-      })
+    this.tasksApiService.register(this.form.getRawValue()).subscribe(res => {
+      console.log(res);
+    });
   }
 }

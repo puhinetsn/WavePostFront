@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <h2>Hello, Dmytro</h2>
+    <h2><span class="heading-span">Hello, {{ adminName }}</span></h2>
     <button mat-icon-button>
       <mat-icon>logout</mat-icon>
     </button>
@@ -24,16 +24,15 @@
           <mat-form-field>
             <mat-label>Department Address</mat-label>
             <mat-select [(ngModel)]="selectedValue" name="addresses">
-              <mat-option *ngFor="let address of addresses" [value]="address.departmentAdress">
-                {{address.departmentAdress}}
+              <mat-option *ngFor="let address of (addresses$ | async)" [value]="address">
+                {{ address.departmentId }},  {{ address.departmentAddress }}
               </mat-option>
             </mat-select>
           </mat-form-field>
         </div>
 
         <div class="tasks">
-          <app-task *ngFor="let task of tasks" [task]="task">
-          </app-task>
+          <app-task *ngFor="let task of (tasks$ | async)" [task]="task"></app-task>
         </div>
         
       </div>
