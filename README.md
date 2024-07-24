@@ -1,27 +1,47 @@
-# Wavepost
+# Wavepost (front-end)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+This is a frontal part of systems for distributing tasks among employees.
 
-## Development server
+## Built With
+* Angular
+* Angular Material
+* TypeScript
+* HTML
+* CSS
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Installation
+Clone the repo
+```
+git clone https://github.com/puhinetsn/WavePostFront.git
+```
 
-## Code scaffolding
+Use the package manager [npm](https://www.npmjs.com/) to run the project.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+## Usage
+Run the command below to start the project. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```bash
+ng serve
+```
+For correct work run [Back-end](https://github.com/puhinetsn/WavePostBack) part at the same time.
+## Example Data
+If you want to log in as a administrator, enter this data:
+* login: anastasiiapuhinets@wavepost.com
+* password: testpass
 
-## Running unit tests
+If you want to log in as a department worker, enter this data:
+* login: dmytrokoval@wavepost.com
+* password: testpass
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Contacts
+If you have any questions about the project, please find attached my email address: 
+[anastasiiapuhinets@gmail.com](mailto:anastasiiapuhinets@gmail.com?subject=[Wavepost]%20Source%20Han%20Sans)
 
-## Running end-to-end tests
+## License
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[MIT](https://choosealicense.com/licenses/mit/)
