@@ -1,18 +1,14 @@
-<div class="personal-schedule-container">
-    <div class="header">
-      <img src="smallMainLogo.jfif" alt="Logo"/>
-      <h2>Hello, Dmytro</h2>
-      <button mat-icon-button>
-        <mat-icon>logout</mat-icon>
-      </button>
-    </div>
-  
+<app-task-header>
+  <div class="personal-schedule-container">
     <div class="schedule-worker-info">
       <app-worker-data></app-worker-data>
     </div>
-  
+
     <div class="info-table">
-      <app-task-table-assignments></app-task-table-assignments>
+      <app-task-table-assignments
+        [loadPage]="loadPage"
+        [getLength]="getLength">
+      </app-task-table-assignments>
     </div>
-</div>
-  
+  </div>
+</app-task-header>

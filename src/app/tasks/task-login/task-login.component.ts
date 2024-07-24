@@ -6,6 +6,9 @@ import { merge } from 'rxjs';
 import { IWorker } from '../task.model';
 import { Router } from '@angular/router';
 import { TasksApiService } from '../../services/tasks-api.service';
+import {TasksRedirectService} from "../../services/tasks-redirect.service";
+
+
 
 @Component({
   selector: 'app-task-login',
@@ -23,7 +26,8 @@ export class TaskLoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
-    private tasksApiService: TasksApiService 
+    private tasksApiService: TasksApiService,
+    private redirectService: TasksRedirectService,
   ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
@@ -53,21 +57,11 @@ export class TaskLoginComponent implements OnInit {
   }
 
   submit(): void {
-    interface ILoginResult {
-      message: string;
+      this.tasksApiService.logIn(this.form.getRawValue()).subscribe(res => {
+        if (res.message === 'Success') {
+          this.redirectService.redirect(this.router);
+        }
+      });
     }
-
-    this.tasksApiService.logIn(this.form.getRawValue()).subscribe(res => {
-      if (res.message === 'Success') {
-        this.http.get<IWorker>('http://localhost:3000/api/workers', { withCredentials: true }).subscribe(workerRes => {
-          console.log(workerRes.position);
-          if (workerRes.position === 'Worker') {
-            this.router.navigate(['/worker-schedule']);
-          } else if (workerRes.position === 'Admin') {
-            this.router.navigate(['/all-tasks']);
-          }
-        });
-      }
-    });
-  }
+    
 }

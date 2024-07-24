@@ -1,81 +1,66 @@
+<app-task-header>
+  <div class="main-assignment-info">
+    <h1>Task Info</h1>
+    <form method="post" [formGroup]="form" (submit)='submit()'>
+      <div class="main-assignment-info-desc">
+        <p>
+          <span class="info-name" id="name">Name: </span>
+          <span class="info-desc">{{ assignmentName }}</span>
+        </p>
+        <div>
+          <span class="info-name" id="desc">Description: </span>
+          <mat-form-field class="example-full-width">
+            <mat-label>Leave a comment</mat-label>
+            <textarea matInput placeholder="Describe a task" formControlName="description"></textarea>
+          </mat-form-field>
+        </div>
+        <p>
+          <span class="info-name" id="payperday">Per day payment: </span>
+          <span class="info-desc">{{ payment }} UAH</span>
+        </p>
+        <div class="department-address">
+          <span class="info-name">Department: </span>
+          <mat-form-field>
+            <mat-label>Department Address</mat-label>
+            <mat-select (selectionChange)="onDepartmentChange($event.value)"
+                        formControlName="department">
+              <mat-option *ngFor="let address of (addresses$ | async)" [value]="address">
+                {{ address._id }}, {{ address.departmentAddress }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="performers">
+        <h5>Number of performers: </h5>
+        <mat-form-field>
+          <mat-label>Number</mat-label>
+          <input matInput placeholder="Number" type="number" formControlName="exequtorsQty">
+        </mat-form-field>
+      </div>
+      <app-task-assign-workers-table
+        [dataSource]="allWorkers"
+        [exequtorsQty]="form.get('exequtorsQty')?.value"
+        (workers)="setWorkers($event)">
+      </app-task-assign-workers-table>
+      <div class="date-range">
+        <mat-form-field>
+          <mat-label>Enter a date range</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input matStartDate formControlName="startDate" placeholder="Start date">
+            <input matEndDate formControlName="endDate" placeholder="End date">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+      </div>
 
-
-<div class="main-info-container">
-    <div class="header">
-        <img src="smallMainLogo.jfif"/>
-        <h2>Task Assignment</h2>
-    </div>
-    
-    <div class='main-assignment-info'>
-        <h1>Task Info</h1>
-        <div class="main-assignment-info-desc">
-            <p>
-                <span class="info-name" id="name">Name:</span>
-                <span class="info-desc">cash desk</span>
-            </p>
-            <p>
-                <span class="info-name" id="desc">Description:</span>
-                <span class="info-desc">Lorem Ipsum is simply dummy text of the printing and 
-                typesetting industry. Lorem Ipsum has been the industry's standard dummy text 
-                ever since the 1500s.</span>
-            </p>
-            <p>
-                <span class="info-name" id="payperday">Per day payment:</span>
-                <span class="info-desc">1300UAH</span>
-            </p>
-            <p>
-                <span class="info-name" id="name">Department:</span>
-                <span class="info-desc">2</span>
-            </p>
-        </div>
-        <div class="performers">
-            <h5>Number of performers: </h5>
-            <mat-form-field>
-                <mat-label>Number</mat-label>
-                <input matInput placeholder="Number" type="number" [(ngModel)]="number">
-            </mat-form-field>
-        </div>
-    
-        <div class="list-of-performers">
-            <div class="performer">
-                <p>Lesnoi Dmytro Serhiyovych</p>
-                <button mat-fab extended>
-                    ADD
-                </button>
-            </div>
-            <div class="performer">
-                <p>Lesnoi Dmytro Serhiyovych</p>
-                <button mat-fab extended>
-                    ADD
-                </button>
-            </div>
-            <div class="performer">
-                <p>Lesnoi Dmytro Serhiyovych</p>
-                <button mat-fab extended>
-                    ADD
-                </button>
-            </div>
-        </div>
-    
-        <div class="date-range">
-            <mat-form-field>
-                <mat-label>Enter a date range</mat-label>
-                <mat-date-range-input [rangePicker]="picker">
-                  <input matStartDate placeholder="Start date">
-                  <input matEndDate placeholder="End date">
-                </mat-date-range-input>
-                <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-date-range-picker #picker></mat-date-range-picker>
-              </mat-form-field>
-        </div>
-    
-        <div class="assign-button">
-            <button mat-fab extended>
-                Assign
-            </button>
-        </div>
-    </div>
-</div>
-
-
+      <div class="assign-button">
+        <button type="submit" mat-fab extended>
+          Assign
+        </button>
+      </div>
+    </form>
+  </div>
+</app-task-header>

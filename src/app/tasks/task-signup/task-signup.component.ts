@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { merge } from 'rxjs';
 import { TasksApiService } from '../../services/tasks-api.service';
 
+
 @Component({
   selector: 'app-task-signup',
   templateUrl: './task-signup.component.html',
@@ -22,7 +23,7 @@ export class TaskSignupComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private tasksApiService: TasksApiService 
+    private tasksApiService: TasksApiService,
   ) {
     merge(this.email.statusChanges, this.email.valueChanges)
       .pipe(takeUntilDestroyed())
@@ -57,9 +58,9 @@ export class TaskSignupComponent implements OnInit {
   }
 
   submit(): void {
-    console.log(this.form.getRawValue());
-    this.tasksApiService.register(this.form.getRawValue()).subscribe(res => {
-      console.log(res);
-    });
+      this.tasksApiService.register(this.form.getRawValue()).subscribe(res => {
+        console.log(res);
+      });
+    
   }
 }

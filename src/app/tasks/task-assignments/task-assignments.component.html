@@ -1,11 +1,30 @@
-<div class="search-container">
-  <div class="header">
-    <img src="smallMainLogo.jfif" />
-    <h2>Hello, Dmytro</h2>
-  </div>
-  
+<app-task-header>
   <div class="search-and-list-container">
-    <app-task-table-assignments>
+    <div class="search">
+      <div>
+        <span class="info-name">Department: </span>
+        <mat-form-field>
+          <mat-label>Department Address</mat-label>
+          <mat-select [(ngModel)]="selectedValue" name="addresses"
+                      (selectionChange)="onChange()">
+            <mat-option *ngFor="let address of (addresses$ | async)" [value]="address">
+              {{ address._id }},  {{ address.departmentAddress }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <span>Worker Last Name: </span>
+        <mat-form-field>
+          <mat-label>Worker Name</mat-label>
+          <input matInput [(ngModel)]="workerName"
+                 (change)="onChange()">
+        </mat-form-field>
+      </div>
+    </div>
+    <app-task-table-assignments
+      [loadPage]="loadPage"
+      [getLength]="getLength">>
     </app-task-table-assignments>
   </div>
-</div>
+</app-task-header>
