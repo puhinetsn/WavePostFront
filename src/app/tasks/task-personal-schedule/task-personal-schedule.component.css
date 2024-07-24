@@ -11,7 +11,7 @@ mat-icon {
 }
 
 .personal-schedule-container{
-    display: flex; 
+    display: flex;
     flex-direction:column;
 }
 
@@ -25,8 +25,6 @@ mat-icon {
     font-family: var(--heading-font);
     font-size: 2em;
 }
-
-
 
 .worker-info span {
     font-size: 1.5em;

@@ -34,6 +34,8 @@ import { TaskPersonalScheduleComponent } from './tasks/task-personal-schedule/ta
 import { TaskTableAssignmentsComponent } from './tasks/task-table-assignments/task-table-assignments.component';
 import { TaskHeaderComponent } from './tasks/task-header/task-header.component';
 import { HttpClientModule } from '@angular/common/http';
+import {TaskAssignWorkersTableComponent} from "./tasks/task-assign-workers-table/task-assign-workers-table.component";
+import {MatSort} from "@angular/material/sort";
 
 
 @NgModule({
@@ -50,6 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     TaskPersonalScheduleComponent,
     TaskTableAssignmentsComponent,
     TaskHeaderComponent,
+    TaskAssignWorkersTableComponent,
+    TaskAssignWorkersTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,8 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatIconModule, 
-    MatSelectModule, 
+    MatIconModule,
+    MatSelectModule,
     FormsModule,
     MatSidenavModule,
     MatToolbarModule,
@@ -73,7 +77,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatRadioModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSort
   ],
   providers: [
     provideClientHydration(),

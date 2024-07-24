@@ -1,41 +1,10 @@
-<div class="side-nav-container" [class.example-is-mobile]="mobileQuery.matches">
-  <mat-toolbar class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <h2><span class="heading-span">Hello, {{ adminName }}</span></h2>
-    <button mat-icon-button>
-      <mat-icon>logout</mat-icon>
-    </button>
-  </mat-toolbar>
+<app-task-header>
+  <div class="task-list-container">
+    <h2>New Tasks</h2>
 
-  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
-    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
-      <mat-nav-list>
-        <a mat-list-item *ngFor="let nav of fillerNav" routerLink=".">{{nav}}</a>
-      </mat-nav-list>
-    </mat-sidenav>
-
-    <mat-sidenav-content>
-      <div class="task-list-container">
-        <h2>New Tasks</h2>
-        <div class="department-address">
-          <h4>Department: </h4>
-          <mat-form-field>
-            <mat-label>Department Address</mat-label>
-            <mat-select [(ngModel)]="selectedValue" name="addresses">
-              <mat-option *ngFor="let address of (addresses$ | async)" [value]="address">
-                {{ address.departmentId }},  {{ address.departmentAddress }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="tasks">
-          <app-task *ngFor="let task of (tasks$ | async)" [task]="task"></app-task>
-        </div>
-        
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
+    <div class="tasks">
+      <app-task *ngFor="let task of (tasks$ | async)" [task]="task"
+                (click)="navigateToTaskDetail(task._id)"></app-task>
+    </div>
+  </div>
+</app-task-header>

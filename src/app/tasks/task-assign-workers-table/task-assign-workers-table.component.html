@@ -1,0 +1,63 @@
+<div>
+  <h5 class="table-name">Assigned to</h5>
+  <table mat-table [dataSource]="assignedWorkers" class="mat-elevation-z8 mat-table">
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef>First Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element"> {{ element.lastName }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="middleName">
+      <th mat-header-cell *matHeaderCellDef>Middle Name</th>
+      <td mat-cell *matCellDef="let element"> {{ element.middleName }}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr (click)="clickedAssignedWorker = row"
+        [class.clicked-row]="clickedAssignedWorker === row"
+        mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div class="button-row">
+    <button mat-fab class="table-button" type="button"
+            (click)="removeWorker()"
+            [disabled]="!clickedAssignedWorker">Remove
+    </button>
+  </div>
+  <h5 class="table-name">Available workers</h5>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="freeWorkers" class="mat-table">
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="lastName">
+        <th mat-header-cell *matHeaderCellDef>Last Name</th>
+        <td mat-cell *matCellDef="let element"> {{ element.lastName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="middleName">
+        <th mat-header-cell *matHeaderCellDef>Middle Name</th>
+        <td mat-cell *matCellDef="let element"> {{ element.middleName }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        (click)="clickedFreeWorker = row"
+        [class.clicked-row]="clickedFreeWorker === row"
+        mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25]" aria-label="Select page of users"></mat-paginator>
+  </div>
+  <div class="button-row">
+    <button mat-fab class="table-button" type="button"
+            [disabled]="!clickedFreeWorker || assignedWorkers.data.length >= number"
+            (click)="assignWorker()">
+      Add
+    </button>
+  </div>
+</div>

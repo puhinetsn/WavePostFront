@@ -17,7 +17,6 @@
     font-size: 2em;
 }
 
-
 .search-and-list-container {
     width: 90%;
     display: flex;
@@ -25,6 +24,24 @@
     padding-bottom: 5%;
     border-radius: 15px;
     margin: 5% auto;
+}
+
+.search {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search span{
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  width: 20%;
+}
+
+.search mat-form-field {
+  width: 25vw;
 }
 
 @media (min-width: 576px){
