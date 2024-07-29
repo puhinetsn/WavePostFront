@@ -3,6 +3,10 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
 This is a frontal part of systems for distributing tasks among employees.
 
+##Access
+
+Website is accessible through [https://puhinetsn.github.io/WavePostFront](https://puhinetsn.github.io/WavePostFront)
+
 ## Built With
 * Angular
 * Angular Material
