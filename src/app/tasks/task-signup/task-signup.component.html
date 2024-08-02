@@ -31,6 +31,16 @@
           <mat-radio-button value="Worker">Worker</mat-radio-button>
           <mat-radio-button value="Admin">Administrator</mat-radio-button>
         </mat-radio-group>
+
+        <mat-form-field>
+          <mat-label>Department Address</mat-label>
+          <mat-select (selectionChange)="onDepartmentChange($event.value)"
+                      formControlName="departmentId">
+            <mat-option *ngFor="let address of (addresses$ | async)" [value]="address">
+              {{ address._id }}, {{ address.departmentAddress }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
   
         <mat-form-field class="custom-input">
           <mat-label>Salary rate</mat-label>

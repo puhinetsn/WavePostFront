@@ -3,7 +3,6 @@ import { Component, OnInit, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { merge } from 'rxjs';
-import { IWorker } from '../task.model';
 import { Router } from '@angular/router';
 import { TasksApiService } from '../../services/tasks-api.service';
 import {TasksRedirectService} from "../../services/tasks-redirect.service";
