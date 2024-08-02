@@ -59,7 +59,7 @@ export class TaskHeaderComponent implements OnInit, OnDestroy {
           },{
             name: 'Add a new account',
             onClick: () => this.router.navigate(['/register'])
-          },]
+          }]
         } else if (res.position === 'Worker') {
           this.fillerNav = [{
             name: 'View all assigned tasks',
